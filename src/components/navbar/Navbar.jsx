@@ -23,20 +23,20 @@ export function SearchInput() {
   );
 }
 
-export function MovieCount() {
+export function MovieCount({ movies }) {
   return (
     <p className="num-results">
-      Found <strong>X</strong> results
+      Found <strong>{ movies.length }</strong> results
     </p>
   );
 }
 
-export default function Navbar() {
+export default function Navbar({ movies }) {
   return (
     <nav className="nav-bar">
       <Logo />
       <SearchInput />
-      <MovieCount />
+      <MovieCount movies={movies} />
     </nav>
   );
 }
