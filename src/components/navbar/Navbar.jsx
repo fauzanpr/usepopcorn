@@ -31,12 +31,11 @@ export function MovieCount({ movies }) {
   );
 }
 
-export default function Navbar({ movies }) {
+export default function Navbar({ children }) {
   return (
     <nav className="nav-bar">
       <Logo />
-      <SearchInput />
-      <MovieCount movies={movies} />
+      { children }
     </nav>
   );
 }

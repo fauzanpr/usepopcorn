@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { MoviesList } from "./Movies";
 
 const tempWatchedData = [
   {
@@ -28,7 +27,7 @@ const tempWatchedData = [
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
-function ListBox({ movies }) {
+export function ListBox({ children }) {
   const [isOpen1, setIsOpen1] = useState(true);
   return (
     <div className="box">
@@ -38,7 +37,7 @@ function ListBox({ movies }) {
       >
         {isOpen1 ? "–" : "+"}
       </button>
-      {isOpen1 && <MoviesList movies={movies} />}
+      {isOpen1 && children }
     </div>
   );
 }
@@ -124,10 +123,10 @@ function WatchedMovieBox() {
   );
 }
 
-function Main({ movies }) {
+function Main({ children }) {
   return (
     <main className="main">
-      <ListBox movies={ movies } />
+      { children }
       <WatchedMovieBox />
     </main>
   );

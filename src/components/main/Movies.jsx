@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 export function MovieCard({ key, movie }) {
-  console.log(movie);
   return (
     <li key={key}>
       <img src={movie.Poster} alt={`${movie.Title} poster`} />
@@ -18,12 +17,11 @@ export function MovieCard({ key, movie }) {
 export function MoviesList({ movies }) {
   return (
     <ul className="list">
-      {movies?.map((movie) => (
-        <MovieCard
-          key={movie.imdbID}
-          movie={movie}
-        />
-      ))}
+      <>
+        {movies?.map((movie) => (
+          <MovieCard key={movie.imdbID} movie={movie} />
+        ))}
+      </>
     </ul>
   );
 }
